@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - GreenDrive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigasi -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="index.html" class="nav__logo-link">
+                    <span class="nav__logo-icon">⚡</span>
+                    GreenDrive
+                </a>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">Beranda</a></li>
+                <li><a href="katalog.html" class="nav__link">Katalog</a></li>
+                <li><a href="detail.html" class="nav__link nav__link--active">Detail</a></li>
+            </ul>
+            <button class="nav__toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-detail" id="productDetail">
+            <!-- Akan diisi oleh JavaScript -->
+        </section>
+
+        <!-- Form Booking Test Drive -->
+        <section class="booking" id="booking">
+            <h2 class="section-title">Booking Test Drive</h2>
+            <p class="section-subtitle">Rasakan langsung pengalaman berkendara mobil listrik</p>
+            <form class="booking__form" id="bookingForm">
+                <div class="form-group">
+                    <label for="nama" class="form-label">Nama Lengkap *</label>
+                    <input type="text" id="nama" name="nama" class="form-input" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email *</label>
+                    <input type="email" id="email" name="email" class="form-input" required placeholder="contoh@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="model" class="form-label">Model Pilihan *</label>
+                    <select id="model" name="model" class="form-input" required>
+                        <option value="">Pilih model mobil</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal" class="form-label">Tanggal Test Drive *</label>
+                    <input type="date" id="tanggal" name="tanggal" class="form-input" required min="">
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Booking Sekarang</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__brand">
+                <h3>⚡ GreenDrive</h3>
+                <p>Dealer mobil listrik terpercaya di Indonesia</p>
+            </div>
+            <div class="footer__contact">
+                <h4>Kontak Kami</h4>
+                <p>📧 info@greendrive.id</p>
+                <p>📱 0800-1234-5678</p>
+                <p>📍 Jakarta, Indonesia</p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 GreenDrive. Seluruh hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Data produk (sama dengan di main.js)
+        const produkList = [
+            {
+                id: 1,
+                nama: "E-Nova City",
+                merek: "Electra",
+                harga: 275000000,
+                jarakTempuh: 300,
+                gambar: "images/e-nova-city.jpg",
+                gambarDetail: ["images/e-nova-city.jpg", "images/e-nova-city-2.jpg", "images/e-nova-city-3.jpg"],
+                spesifikasi: {
+                    baterai: "40 kWh Lithium-ion",
+                    daya: "134 hp",
+                    torsi: "290 Nm",
+                    pengisian: "Fast Charging 50 kW",
+                    kecepatanMax: "150 km/jam",
+                    akselerasi: "0-100 km/jam dalam 7.9 detik"
+                }
+            },
+            {
+                id: 2,
+                nama: "VoltX SUV",
+                merek: "GreenAuto",
+                harga: 450000000,
+                jarakTempuh: 450,
+                gambar: "images/voltx-suv.jpg",
+                gambarDetail: ["images/voltx-suv.jpg", "images/voltx-suv-2.jpg", "images/voltx-suv-3.jpg"],
+                spesifikasi: {
+                    baterai: "60 kWh Lithium-ion",
+                    daya: "201 hp",
+                    torsi: "350 Nm",
+                    pengisian: "Fast Charging 100 kW",
+                    kecepatanMax: "180 km/jam",
+                    akselerasi: "0-100 km/jam dalam 6.5 detik"
+                }
+            },
+            {
+                id: 3,
+                nama: "EcoSpark Hatch",
+                merek: "BlueVolt",
+                harga: 199000000,
+                jarakTempuh: 250,
+                gambar: "images/ecospark-hatch.jpg",
+                gambarDetail: ["images/ecospark-hatch.jpg", "images/ecospark-hatch-2.jpg"],
+                spesifikasi: {
+                    baterai: "30 kWh Lithium-ion",
+                    daya: "94 hp",
+                    torsi: "220 Nm",
+                    pengisian: "Standard Charging 7 kW",
+                    kecepatanMax: "130 km/jam",
+                    akselerasi: "0-100 km/jam dalam 9.2 detik"
+                }
+            },
+            {
+                id: 4,
+                nama: "TeslaGo Sedan",
+                merek: "Electra",
+                harga: 650000000,
+                jarakTempuh: 550,
+                gambar: "images/teslago-sedan.jpg",
+                gambarDetail: ["images/teslago-sedan.jpg", "images/teslago-sedan-2.jpg"],
+                spesifikasi: {
+                    baterai: "75 kWh Lithium-ion",
+                    daya: "280 hp",
+                    torsi: "420 Nm",
+                    pengisian: "Super Charging 150 kW",
+                    kecepatanMax: "210 km/jam",
+                    akselerasi: "0-100 km/jam dalam 4.8 detik"
+                }
+            },
+            {
+                id: 5,
+                nama: "GreenPickup X",
+                merek: "GreenAuto",
+                harga: 550000000,
+                jarakTempuh: 400,
+                gambar: "images/greenpickup-x.jpg",
+                gambarDetail: ["images/greenpickup-x.jpg", "images/greenpickup-x-2.jpg"],
+                spesifikasi: {
+                    baterai: "70 kWh Lithium-ion",
+                    daya: "240 hp",
+                    torsi: "500 Nm",
+                    pengisian: "Fast Charging 100 kW",
+                    kecepatanMax: "170 km/jam",
+                    akselerasi: "0-100 km/jam dalam 5.5 detik"
+                }
+            },
+            {
+                id: 6,
+                nama: "CityZipp Mini",
+                merek: "BlueVolt",
+                harga: 149000000,
+                jarakTempuh: 200,
+                gambar: "images/cityzipp-mini.jpg",
+                gambarDetail: ["images/cityzipp-mini.jpg"],
+                spesifikasi: {
+                    baterai: "20 kWh Lithium-ion",
+                    daya: "67 hp",
+                    torsi: "180 Nm",
+                    pengisian: "Standard Charging 3.7 kW",
+                    kecepatanMax: "110 km/jam",
+                    akselerasi: "0-100 km/jam dalam 11.5 detik"
+                }
+            }
+        ];
+
+        // Ambil ID dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id')) || 1;
+
+        // Tampilkan detail produk
+        const produk = produkList.find(p => p.id === productId) || produkList[0];
+        
+        const detailContainer = document.getElementById('productDetail');
+        detailContainer.innerHTML = `
+            <div class="product-detail__gallery">
+                <div class="gallery__main">
+                    <img src="${produk.gambar}" alt="${produk.nama}" id="mainImage"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23E8F5E9%22 width=%22600%22 height=%22400%22/%3E%3Ctext fill=%22%234CAF50%22 font-size=%2220%22 text-anchor=%22middle%22 x=%22300%22 y=%22200%22%3E${produk.nama}%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="gallery__thumbs">
+                    ${produk.gambarDetail.map((gambar, index) => `
+                        <img src="${gambar}" alt="Thumbnail ${index + 1}" 
+                             class="gallery__thumb ${index === 0 ? 'gallery__thumb--active' : ''}"
+                             onclick="document.getElementById('mainImage').src='${gambar}'"
+                             onerror="this.style.display='none'">
+                    `).join('')}
+                </div>
+            </div>
+            <div class="product-detail__info">
+                <h1 class="product-detail__name">${produk.nama}</h1>
+                <p class="product-detail__brand">${produk.merek}</p>
+                <div class="product-detail__price">Rp ${produk.harga.toLocaleString('id-ID')}</div>
+                <div class="product-detail__range">🔋 Jarak Tempuh: ${produk.jarakTempuh} km</div>
+                
+                <h3>Spesifikasi</h3>
+                <table class="product-detail__specs">
+                    <tr><td>Baterai</td><td>${produk.spesifikasi.baterai}</td></tr>
+                    <tr><td>Daya Maksimum</td><td>${produk.spesifikasi.daya}</td></tr>
+                    <tr><td>Torsi Maksimum</td><td>${produk.spesifikasi.torsi}</td></tr>
+                    <tr><td>Pengisian Daya</td><td>${produk.spesifikasi.pengisian}</td></tr>
+                    <tr><td>Kecepatan Maksimum</td><td>${produk.spesifikasi.kecepatanMax}</td></tr>
+                    <tr><td>Akselerasi</td><td>${produk.spesifikasi.akselerasi}</td></tr>
+                </table>
+                
+                <a href="#booking" class="btn btn--primary btn--full">Booking Test Drive</a>
+            </div>
+        `;
+
+        // Isi dropdown model di form booking
+        const modelSelect = document.getElementById('model');
+        modelSelect.innerHTML = produkList.map(p => 
+            `<option value="${p.nama}" ${p.id === productId ? 'selected' : ''}>${p.nama} - ${p.merek}</option>`
+        ).join('');
+
+        // Set tanggal minimum (hari ini)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('tanggal').setAttribute('min', today);
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validasi dasar
+            const nama = document.getElementById('nama').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const model = document.getElementById('model').value;
+            const tanggal = document.getElementById('tanggal').value;
+            
+            if (!nama || !email || !model || !tanggal) {
+                alert('Mohon lengkapi semua field yang wajib diisi!');
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Mohon masukkan alamat email yang valid!');
+                return;
+            }
+            
+            // Tampilkan alert sukses
+            alert(`Booking Test Drive Berhasil!\n\nDetail:\nNama: ${nama}\nEmail: ${email}\nModel: ${model}\nTanggal: ${tanggal}\n\nTim kami akan menghubungi Anda dalam 1x24 jam.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+ 
