@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sindy Dewipriadi | Portofolio & Seni Tari Betawi</title>
+  
+  <!-- Font Google & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* VARIABLES & RESET */
+    :root {
+      --primary: #C85A32;
+      --primary-hover: #A34320;
+      --secondary: #D4AF37;
+      --bg-light: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --border: #E5E5E5;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* SECTIONS COMMON */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      min-height: 80vh;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #EEEEEE;
+    }
+
+    .hero-img-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img {
+      width: 320px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 4px solid white;
+    }
+
+    /* ABOUT SECTION */
+    .about-container {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 300px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      list-style: none;
+    }
+
+    .skill-item {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* CV SECTION */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .cv-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .cv-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cv-card ul {
+      list-style: none;
+    }
+
+    .cv-card li {
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .cv-card li::before {
+      content: '•';
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* PORTFOLIO SECTION */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .portfolio-info {
+      padding: 1.5rem;
+    }
+
+    .portfolio-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* GALLERY & VIDEO SECTION */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.03);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* CONTACT SECTION */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-details div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .contact-details i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .hero, .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-img, .hero-img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Sindy Dewipriadi</a>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#portfolio">Karya</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 1. BERANDA (HERO) -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Halo, Saya Sindy Dewipriadi!</h1>
+      <p class="hero-tagline">Siswi SMKN 42 Jakarta | Alumni SMPN 120 Jakarta | Pecinta Seni Tari Tradisional Betawi</p>
+      <p class="hero-desc">Selamat datang di website pribadi saya! Tempat saya membagikan perjalanan pendidikan, pengalaman dalam seni tari, serta kecintaan saya terhadap budaya dan kesenian tradisional Betawi.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">Lihat Pengalaman & Karya</a>
+        <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-img-wrapper">
+      <img src="https://lh3.googleusercontent.com/d/1knA6-UCPU2Gp4lUVOeIAIT11yowizwzC" alt="Foto Profil Utama Sindy Dewipriadi" class="hero-img">
+    </div>
+  </section>
+
+  <!-- 2. TENTANG SAYA -->
+  <section id="about">
+    <h2 class="section-title">Tentang Saya</h2>
+    <div class="about-container">
+      <img src="https://lh3.googleusercontent.com/d/13r6qLDbptZw28eRMOHUfMrAcoIVYMH5a" alt="Sindy Dewipriadi Tari Tradisional" class="about-img">
+      <div class="about-text">
+        <p>Halo! Nama saya Sindy Dewipriadi, saat ini saya sedang menempuh pendidikan di SMKN 42 Jakarta dan merupakan alumni SMPN 120 Jakarta. Saya memiliki ketertarikan yang besar terhadap dunia seni, budaya, dan khususnya seni tari tradisional.</p>
+        <p>Saya memiliki pengalaman dalam mengikuti kegiatan tari tradisional Betawi. Melalui kegiatan tari, saya belajar untuk lebih disiplin, percaya diri, bertanggung jawab, serta mampu bekerja sama dengan orang lain.</p>
+        <p>Bagi saya, tari tradisional bukan hanya sebuah pertunjukan, tetapi juga salah satu cara untuk mengenal, menjaga, dan melestarikan budaya Indonesia, khususnya budaya Betawi. Pengalaman dalam seni tari memberikan banyak hal positif dan menjadi bagian berharga dalam perjalanan saya.</p>
+        
+        <ul class="skills-list">
+          <li class="skill-item">?? Seni Tari Tradisional Betawi</li>
+          <li class="skill-item">?? Seni & Budaya Indonesia</li>
+          <li class="skill-item">?? Kerja Sama Tim</li>
+          <li class="skill-item">? Kedisiplinan & Tanggung Jawab</li>
+          <li class="skill-item">?? Kreativitas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CV (CURRICULUM VITAE) -->
+  <section id="cv">
+    <h2 class="section-title">Curriculum Vitae</h2>
+    <div class="cv-grid">
+      <div class="cv-card">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Pendidikan</h3>
+        <ul>
+          <li><strong>SMKN 42 Jakarta</strong> — 2026–Sekarang</li>
+          <li><strong>SMPN 120 Jakarta</strong> — Alumni</li>
+        </ul>
+      </div>
+
+      <div class="cv-card">
+        <h3><i class="fa-solid fa-masks-theater"></i> Pengalaman</h3>
+        <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark);">Kegiatan Tari Tradisional Betawi</p>
+        <ul>
+          <li>Mengikuti latihan tari tradisional Betawi secara rutin.</li>
+          <li>Berpartisipasi dalam pementasan atau kegiatan seni.</li>
+          <li>Mempelajari gerakan dan formasi tari tradisional Betawi.</li>
+          <li>Menjaga kekompakan dan kerja sama saat melakukan pertunjukan.</li>
+          <li>Belajar tampil dengan percaya diri di depan penonton.</li>
+          <li>Ikut serta dalam memperkenalkan dan melestarikan budaya Betawi melalui seni tari.</li>
+        </ul>
+      </div>
+
+      <div class="cv-card">
+        <h3><i class="fa-solid fa-star"></i> Keahlian (Skills)</h3>
+        <ul>
+          <li>Teknik Dasar Tari Tradisional Betawi</li>
+          <li>Kerja Sama Tim</li>
+          <li>Kreativitas</li>
+          <li>Kepercayaan Diri</li>
+          <li>Kedisiplinan</li>
+          <li>Manajemen Waktu</li>
+          <li>Komunikasi</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HASIL KARYA (PORTFOLIO) -->
+  <section id="portfolio">
+    <h2 class="section-title">Hasil Karya & Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <img src="https://lh3.googleusercontent.com/d/1Xh9YNMOnZMlgK_Mjn0UOWu0Wn1kWPs22" alt="Pementasan Tari Tradisional Betawi">
+        <div class="portfolio-info">
+          <h3>Pementasan Tari Tradisional Betawi</h3>
+          <p>Mengikuti dan berpartisipasi dalam pementasan tari tradisional Betawi sebagai bentuk kecintaan terhadap seni dan budaya daerah.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="https://lh3.googleusercontent.com/d/11MHFeK5pQAPHp0V_-scBiFjUV3Y_szm4" alt="Latihan dan Kekompakan Tim Tari">
+        <div class="portfolio-info">
+          <h3>Latihan dan Kekompakan Tim Tari</h3>
+          <p>Mengikuti proses latihan, mempelajari gerakan dan formasi tari, serta menjaga kekompakan bersama anggota tim agar penampilan dapat berjalan dengan baik.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. GALERI FOTO & VIDEO -->
+  <section id="galeri">
+    <h2 class="section-title">Galeri Foto & Video</h2>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/13r6qLDbptZw28eRMOHUfMrAcoIVYMH5a" alt="Kostum Tari Betawi">
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/1Xh9YNMOnZMlgK_Mjn0UOWu0Wn1kWPs22" alt="Pementasan Seni">
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/11MHFeK5pQAPHp0V_-scBiFjUV3Y_szm4" alt="Latihan Tim Tari">
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/1knA6-UCPU2Gp4lUVOeIAIT11yowizwzC" alt="Foto Profil">
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/1ZwsNUuHC8u-JpcpVJ67nHKOxHb-uQR6n" alt="Dokumentasi Kegiatan Tari 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://lh3.googleusercontent.com/d/1NZ_3toRa1zDAvdS-tbIvJbPpc9kSG6gh" alt="Dokumentasi Kegiatan Tari 2">
+      </div>
+    </div>
+
+    <!-- Video Penampilan -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Performance Video Sindy Dewipriadi" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- 8. TESTIMONI -->
+  <section id="testimoni">
+    <h2 class="section-title">Testimoni</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Sindy merupakan anak yang disiplin dan bertanggung jawab dalam mengikuti kegiatan tari. Ia juga mampu bekerja sama dengan teman-temannya dan selalu berusaha memberikan penampilan yang terbaik."</p>
+        <div class="testimonial-author">— Pembina / Pelatih Tari</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>"Sindy adalah teman yang menyenangkan untuk bekerja sama. Ia selalu berusaha mengikuti latihan dengan baik dan menjaga kekompakan bersama anggota tim."</p>
+        <div class="testimonial-author">— Teman / Anggota Tim Tari</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 & 7. KONTAK & MEDIA SOSIAL -->
+  <section id="kontak">
+    <h2 class="section-title">Hubungi Saya</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p>Tertarik untuk mengetahui lebih banyak tentang pengalaman saya dalam seni tari tradisional Betawi atau ingin berkolaborasi dalam kegiatan seni dan budaya? Silakan hubungi saya!</p>
+        
+        <div class="contact-details">
+          <div><i class="fa-solid fa-envelope"></i> sindydewipriadi@gmail.com</div>
+          <div><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://instagram.com/si_ndyy23" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://tiktok.com/@sindyyy029" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://youtube.com/@Sindy23-c3l" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Pesan berhasil terkirim!');">
+        <div class="form-group">
+          <label for="name">Nama</label>
+          <input type="text" id="name" required placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="alamat@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" rows="4" required placeholder="Tulis pesan kamu di sini..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Sindy Dewipriadi. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
