@@ -1,708 +1,641 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sindy Dewipriadi | Portofolio & Seni Tari Betawi</title>
-  
-  <!-- Font Google & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    /* VARIABLES & RESET */
-    :root {
-      --primary: #C85A32;
-      --primary-hover: #A34320;
-      --secondary: #D4AF37;
-      --bg-light: #FAFAFA;
-      --bg-card: #FFFFFF;
-      --text-dark: #222222;
-      --text-muted: #666666;
-      --border: #E5E5E5;
-      --radius: 12px;
-      --shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    /* NAVBAR */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 1.5rem;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* SECTIONS COMMON */
-    section {
-      padding: 5rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      color: var(--text-dark);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 3px;
-      background: var(--primary);
-      margin: 8px auto 0;
-      border-radius: 2px;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
-      min-height: 80vh;
-    }
-
-    .hero-content {
-      flex: 1;
-    }
-
-    .hero-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.1rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .hero-desc {
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.6rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-hover);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-dark);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: #EEEEEE;
-    }
-
-    .hero-img-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-img {
-      width: 320px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 4px solid white;
-    }
-
-    /* ABOUT SECTION */
-    .about-container {
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-img {
-      width: 300px;
-      height: 380px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
-    .about-text p {
-      margin-bottom: 1rem;
-      color: var(--text-muted);
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-      list-style: none;
-    }
-
-    .skill-item {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    /* CV SECTION */
-    .cv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .cv-card {
-      background: var(--bg-card);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .cv-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .cv-card ul {
-      list-style: none;
-    }
-
-    .cv-card li {
-      margin-bottom: 0.8rem;
-      color: var(--text-muted);
-      position: relative;
-      padding-left: 1.2rem;
-    }
-
-    .cv-card li::before {
-      content: '•';
-      color: var(--primary);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    /* PORTFOLIO SECTION */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .portfolio-card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .portfolio-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .portfolio-info {
-      padding: 1.5rem;
-    }
-
-    .portfolio-info h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .portfolio-info p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* GALLERY & VIDEO SECTION */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item img:hover {
-      transform: scale(1.03);
-    }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      background: #000;
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* TESTIMONIALS SECTION */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .testimonial-card {
-      background: var(--bg-card);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      position: relative;
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    /* CONTACT SECTION */
-    .contact-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-    }
-
-    .contact-info p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-details div {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
-    }
-
-    .contact-details i {
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-dark);
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .social-links a:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .contact-form {
-      background: var(--bg-card);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      outline: none;
-      font-size: 0.95rem;
-    }
-
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: var(--primary);
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 768px) {
-      .hero, .about-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-title {
-        font-size: 2.2rem;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .about-img, .hero-img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Pribadi Sindy Dewipriadi</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-dark: #334d73;
+            --secondary: #e8a598;
+            --accent: #f7cac9;
+            --bg-color: #faf9f6;
+            --card-bg: #ffffff;
+            --text-color: #2b2d42;
+            --text-muted: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .img-container {
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background-color: #e2e8f0;
+            position: relative;
+        }
+
+        .hero-image .img-container {
+            max-width: 380px;
+            height: 420px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image .img-container {
+            height: 380px;
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-card .img-container {
+            height: 220px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .skills-list {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: #f0f4f8;
+            color: var(--primary-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cv-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .cv-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 0.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+        }
+
+        .timeline-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-card-body {
+            padding: 1.2rem;
+        }
+
+        .portfolio-card-title {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-style: normal;
+            color: var(--primary-dark);
+            text-align: right;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .about-grid, .contact-container {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="logo">Sindy Dewipriadi</a>
-      <ul class="nav-links">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#portfolio">Karya</a></li>
-        <li><a href="#galeri">Galeri</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-      </ul>
+    <header>
+        <nav>
+            <a href="#" class="logo">Sindy Dewipriadi</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 1. BERANDA (HOME) -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Halo, Saya Sindy Dewipriadi!</h1>
+                <div class="hero-subtitle">Siswi SMKN 42 Jakarta | Alumni SMPN 120 Jakarta | Anggota OSIS Seksi Bidang Kepribadian dan Berbudi Pekerti Luhur</div>
+                <p class="hero-text">Selamat datang di website pribadi saya! Di sini saya membagikan perjalanan pendidikan, pengalaman berorganisasi, kegiatan sekolah, serta pengalaman saya dalam mengembangkan sikap disiplin, tanggung jawab, kerja sama, dan kepedulian terhadap sesama.</p>
+                <div class="btn-group">
+                    <a href="#portfolio" class="btn btn-primary">Lihat Pengalaman & Karya</a>
+                    <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="img-container">
+                    <!-- Link 1: 1gF_PUTtO3l2D6gY4Ka5ZF8kCuRzy24jx -->
+                    <img src="https://drive.google.com/thumbnail?id=1gF_PUTtO3l2D6gY4Ka5ZF8kCuRzy24jx&sz=w1000" 
+                         alt="Foto Profil Utama Sindy Dewipriadi">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TENTANG SAYA (ABOUT ME) -->
+        <section id="about">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="img-container">
+                        <!-- Link 2: 1aZ1QmBrZGcdvO-IxrVym9BAsG-B1sor7 -->
+                        <img src="https://drive.google.com/thumbnail?id=1aZ1QmBrZGcdvO-IxrVym9BAsG-B1sor7&sz=w1000" 
+                             alt="Foto Profil Tentang Saya">
+                    </div>
+                </div>
+                <div class="about-card">
+                    <p>Halo! Nama saya Sindy Dewipriadi, saat ini saya sedang menempuh pendidikan di SMKN 42 Jakarta. Saya merupakan alumni SMPN 120 Jakarta.</p>
+                    <br>
+                    <p>Saya memiliki ketertarikan dalam bidang organisasi, kegiatan sekolah, kerja sama tim, dan pengembangan diri. Saya senang mendapatkan pengalaman baru serta belajar untuk menjadi pribadi yang lebih disiplin, bertanggung jawab, dan mampu bekerja sama dengan orang lain.</p>
+                    <br>
+                    <p>Saat bersekolah di SMPN 120 Jakarta, saya memiliki pengalaman sebagai Anggota OSIS Seksi Bidang Kepribadian dan Berbudi Pekerti Luhur. Melalui pengalaman tersebut, saya belajar tentang kedisiplinan, tanggung jawab, sopan santun, kepedulian, serta pentingnya menjaga sikap dan perilaku yang baik dalam lingkungan sekolah.</p>
+                    <br>
+                    <p>Pengalaman berorganisasi tersebut menjadi salah satu pengalaman berharga bagi saya untuk terus berkembang dan lebih percaya diri dalam berinteraksi serta bekerja sama dengan orang lain.</p>
+                    
+                    <h3 style="margin-top: 1.5rem; color: var(--primary);">?? Minat & Keahlian</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">?? Organisasi & Kerja Sama Tim</span>
+                        <span class="skill-tag">?? Kepribadian dan Budi Pekerti Luhur</span>
+                        <span class="skill-tag">??? Komunikasi</span>
+                        <span class="skill-tag">? Kedisiplinan & Tanggung Jawab</span>
+                        <span class="skill-tag">?? Kreativitas & Kegiatan Sekolah</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CV (CURRICULUM VITAE) -->
+        <section id="cv">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <div class="cv-grid">
+                <div class="cv-card">
+                    <h3>?? Pendidikan</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-title">SMKN 42 Jakarta</div>
+                        <div class="timeline-sub">2026 – Sekarang</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">SMPN 120 Jakarta</div>
+                        <div class="timeline-sub">Alumni</div>
+                    </div>
+                </div>
+
+                <div class="cv-card">
+                    <h3>??? Pengalaman Organisasi</h3>
+                    <div class="timeline-title">Anggota OSIS Seksi Bidang Kepribadian dan Berbudi Pekerti Luhur</div>
+                    <div class="timeline-sub">SMPN 120 Jakarta</div>
+                    <br>
+                    <ul style="padding-left: 1.2rem; font-size: 0.95rem; color: var(--text-color);">
+                        <li>Berpartisipasi dalam kegiatan OSIS dan kegiatan sekolah.</li>
+                        <li>Membantu menjaga sikap disiplin dan tata tertib di lingkungan sekolah.</li>
+                        <li>Mendukung kegiatan yang berkaitan dengan pembentukan kepribadian dan karakter siswa.</li>
+                        <li>Belajar bekerja sama dengan pengurus OSIS lainnya.</li>
+                        <li>Mengembangkan sikap tanggung jawab, sopan santun, dan kepedulian terhadap sesama.</li>
+                        <li>Berpartisipasi dalam menciptakan lingkungan sekolah yang positif dan nyaman.</li>
+                    </ul>
+                </div>
+
+                <div class="cv-card">
+                    <h3>?? Keahlian (Skills)</h3>
+                    <div class="skills-grid">
+                        <div class="skill-tag">Leadership & Kerja Sama</div>
+                        <div class="skill-tag">Komunikasi</div>
+                        <div class="skill-tag">Kedisiplinan</div>
+                        <div class="skill-tag">Tanggung Jawab</div>
+                        <div class="skill-tag">Manajemen Waktu</div>
+                        <div class="skill-tag">Organisasi</div>
+                        <div class="skill-tag">Kreativitas</div>
+                        <div class="skill-tag">Problem Solving</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. HASIL KARYA (PORTFOLIO) -->
+        <section id="portfolio">
+            <h2 class="section-title">Hasil Karya (Portfolio)</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <!-- Link 3: 10_nGf3HbnBCBDn1WIRWx5ECN8_I5K3m4 -->
+                        <img src="https://drive.google.com/thumbnail?id=10_nGf3HbnBCBDn1WIRWx5ECN8_I5K3m4&sz=w1000" 
+                             alt="Kegiatan OSIS SMPN 120 Jakarta">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">Karya 1: Kegiatan OSIS SMPN 120 Jakarta</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Berpartisipasi dalam berbagai kegiatan OSIS dan membantu menyukseskan kegiatan sekolah bersama anggota OSIS lainnya.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <!-- Link 4: 1hkiEiBQx94qnrRu3vH-cckHTMpL9WyY1 -->
+                        <img src="https://drive.google.com/thumbnail?id=1hkiEiBQx94qnrRu3vH-cckHTMpL9WyY1&sz=w1000" 
+                             alt="Kegiatan Seksi Kepribadian">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">Karya 2: Kegiatan Seksi Kepribadian & Budi Pekerti Luhur</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Berperan dalam kegiatan yang mendukung pembentukan karakter, kedisiplinan, sikap sopan santun, serta kepedulian siswa terhadap lingkungan sekolah.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <!-- Link 5: 1l-ly8yocyFR-xkAwLeDydaE1L62JyZ8S -->
+                        <img src="https://drive.google.com/thumbnail?id=1l-ly8yocyFR-xkAwLeDydaE1L62JyZ8S&sz=w1000" 
+                             alt="Kerja Sama dalam Organisasi">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">Karya 3: Kerja Sama dalam Organisasi</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Bekerja sama dengan pengurus OSIS dalam merencanakan dan melaksanakan kegiatan sekolah serta belajar bertanggung jawab terhadap tugas yang diberikan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. GALERI FOTO & VIDEO -->
+        <section id="galeri">
+            <h2 class="section-title">Galeri Foto & Video</h2>
+            <h3 style="margin-bottom: 1rem; color: var(--primary);">?? Galeri Foto</h3>
+            <div class="portfolio-grid" style="margin-bottom: 2rem;">
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <img src="https://drive.google.com/thumbnail?id=10_nGf3HbnBCBDn1WIRWx5ECN8_I5K3m4&sz=w1000" 
+                             alt="Foto saat mengikuti kegiatan OSIS">
+                    </div>
+                    <div class="portfolio-card-body"><p style="font-size: 0.9rem;">Foto saat mengikuti kegiatan OSIS</p></div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <img src="https://drive.google.com/thumbnail?id=1hkiEiBQx94qnrRu3vH-cckHTMpL9WyY1&sz=w1000" 
+                             alt="Foto bersama anggota OSIS">
+                    </div>
+                    <div class="portfolio-card-body"><p style="font-size: 0.9rem;">Foto bersama anggota OSIS</p></div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <img src="https://drive.google.com/thumbnail?id=1l-ly8yocyFR-xkAwLeDydaE1L62JyZ8S&sz=w1000" 
+                             alt="Foto saat mengikuti kegiatan sekolah">
+                    </div>
+                    <div class="portfolio-card-body"><p style="font-size: 0.9rem;">Foto saat mengikuti kegiatan sekolah</p></div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <!-- Link 6: 1PUh9gght7EhXXuc3iG2eXXte-BwerpZM -->
+                        <img src="https://drive.google.com/thumbnail?id=1PUh9gght7EhXXuc3iG2eXXte-BwerpZM&sz=w1000" 
+                             alt="Foto saat membantu kegiatan sekolah & berorganisasi">
+                    </div>
+                    <div class="portfolio-card-body"><p style="font-size: 0.9rem;">Foto saat membantu kegiatan sekolah & berorganisasi</p></div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; color: var(--primary);">?? Galeri Video</h3>
+            <div class="about-card">
+                <p>Video dokumentasi kegiatan OSIS dan kegiatan sekolah SMPN 120 Jakarta.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">*(Video link dapat dimasukkan di sini jika sudah tersedia)*</p>
+            </div>
+        </section>
+
+        <!-- 8. TESTIMONI -->
+        <section id="testimoni">
+            <h2 class="section-title">Testimoni</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>« "Sindy merupakan anggota yang bertanggung jawab dan mampu bekerja sama dengan baik dalam menjalankan kegiatan OSIS. Ia juga memiliki sikap yang sopan dan peduli terhadap lingkungan sekitar." »</p>
+                    <div class="testimonial-author">— Pembina OSIS SMPN 120 Jakarta</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>« "Sindy adalah teman organisasi yang dapat diandalkan. Ia mau membantu ketika ada kegiatan dan mampu bekerja sama dengan anggota lainnya." »</p>
+                    <div class="testimonial-author">— Rekan Pengurus OSIS SMPN 120 Jakarta</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 & 7. KONTAK & MEDIA SOSIAL -->
+        <section id="kontak">
+            <h2 class="section-title">Kontak & Media Sosial</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Hubungi Saya</h3>
+                    <p style="margin-top: 1rem;">Tertarik untuk berkolaborasi, berbagi pengalaman, atau ingin mengetahui lebih banyak tentang perjalanan pendidikan dan pengalaman organisasi saya? Silakan hubungi saya!</p>
+                    <p><strong>?? Email:</strong> sindydewipriadi@gmail.com</p>
+                    <p><strong>?? Lokasi:</strong> Jakarta, Indonesia</p>
+                    
+                    <h4 style="margin-top: 1.5rem;">Media Sosial:</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/si_ndyy23" target="_blank">Instagram (@si_ndyy23)</a> | 
+                        <a href="https://tiktok.com/@sindyyy029" target="_blank">TikTok (@sindyyy029)</a> | 
+                        <a href="https://youtube.com/@sindy-c3i" target="_blank">YouTube (@sindy-c3i)</a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Pesan berhasil dikirim!');">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Pesan Anda" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer;">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-  </header>
 
-  <!-- 1. BERANDA (HERO) -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Halo, Saya Sindy Dewipriadi!</h1>
-      <p class="hero-tagline">Siswi SMKN 42 Jakarta | Alumni SMPN 120 Jakarta | Pecinta Seni Tari Tradisional Betawi</p>
-      <p class="hero-desc">Selamat datang di website pribadi saya! Tempat saya membagikan perjalanan pendidikan, pengalaman dalam seni tari, serta kecintaan saya terhadap budaya dan kesenian tradisional Betawi.</p>
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn btn-primary">Lihat Pengalaman & Karya</a>
-        <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
-      </div>
-    </div>
-    <div class="hero-img-wrapper">
-      <img src="https://lh3.googleusercontent.com/d/1knA6-UCPU2Gp4lUVOeIAIT11yowizwzC" alt="Foto Profil Utama Sindy Dewipriadi" class="hero-img">
-    </div>
-  </section>
-
-  <!-- 2. TENTANG SAYA -->
-  <section id="about">
-    <h2 class="section-title">Tentang Saya</h2>
-    <div class="about-container">
-      <img src="https://lh3.googleusercontent.com/d/13r6qLDbptZw28eRMOHUfMrAcoIVYMH5a" alt="Sindy Dewipriadi Tari Tradisional" class="about-img">
-      <div class="about-text">
-        <p>Halo! Nama saya Sindy Dewipriadi, saat ini saya sedang menempuh pendidikan di SMKN 42 Jakarta dan merupakan alumni SMPN 120 Jakarta. Saya memiliki ketertarikan yang besar terhadap dunia seni, budaya, dan khususnya seni tari tradisional.</p>
-        <p>Saya memiliki pengalaman dalam mengikuti kegiatan tari tradisional Betawi. Melalui kegiatan tari, saya belajar untuk lebih disiplin, percaya diri, bertanggung jawab, serta mampu bekerja sama dengan orang lain.</p>
-        <p>Bagi saya, tari tradisional bukan hanya sebuah pertunjukan, tetapi juga salah satu cara untuk mengenal, menjaga, dan melestarikan budaya Indonesia, khususnya budaya Betawi. Pengalaman dalam seni tari memberikan banyak hal positif dan menjadi bagian berharga dalam perjalanan saya.</p>
-        
-        <ul class="skills-list">
-          <li class="skill-item">?? Seni Tari Tradisional Betawi</li>
-          <li class="skill-item">?? Seni & Budaya Indonesia</li>
-          <li class="skill-item">?? Kerja Sama Tim</li>
-          <li class="skill-item">? Kedisiplinan & Tanggung Jawab</li>
-          <li class="skill-item">?? Kreativitas</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. CV (CURRICULUM VITAE) -->
-  <section id="cv">
-    <h2 class="section-title">Curriculum Vitae</h2>
-    <div class="cv-grid">
-      <div class="cv-card">
-        <h3><i class="fa-solid fa-graduation-cap"></i> Pendidikan</h3>
-        <ul>
-          <li><strong>SMKN 42 Jakarta</strong> — 2026–Sekarang</li>
-          <li><strong>SMPN 120 Jakarta</strong> — Alumni</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3><i class="fa-solid fa-masks-theater"></i> Pengalaman</h3>
-        <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark);">Kegiatan Tari Tradisional Betawi</p>
-        <ul>
-          <li>Mengikuti latihan tari tradisional Betawi secara rutin.</li>
-          <li>Berpartisipasi dalam pementasan atau kegiatan seni.</li>
-          <li>Mempelajari gerakan dan formasi tari tradisional Betawi.</li>
-          <li>Menjaga kekompakan dan kerja sama saat melakukan pertunjukan.</li>
-          <li>Belajar tampil dengan percaya diri di depan penonton.</li>
-          <li>Ikut serta dalam memperkenalkan dan melestarikan budaya Betawi melalui seni tari.</li>
-        </ul>
-      </div>
-
-      <div class="cv-card">
-        <h3><i class="fa-solid fa-star"></i> Keahlian (Skills)</h3>
-        <ul>
-          <li>Teknik Dasar Tari Tradisional Betawi</li>
-          <li>Kerja Sama Tim</li>
-          <li>Kreativitas</li>
-          <li>Kepercayaan Diri</li>
-          <li>Kedisiplinan</li>
-          <li>Manajemen Waktu</li>
-          <li>Komunikasi</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. HASIL KARYA (PORTFOLIO) -->
-  <section id="portfolio">
-    <h2 class="section-title">Hasil Karya & Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <img src="https://lh3.googleusercontent.com/d/1Xh9YNMOnZMlgK_Mjn0UOWu0Wn1kWPs22" alt="Pementasan Tari Tradisional Betawi">
-        <div class="portfolio-info">
-          <h3>Pementasan Tari Tradisional Betawi</h3>
-          <p>Mengikuti dan berpartisipasi dalam pementasan tari tradisional Betawi sebagai bentuk kecintaan terhadap seni dan budaya daerah.</p>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <img src="https://lh3.googleusercontent.com/d/11MHFeK5pQAPHp0V_-scBiFjUV3Y_szm4" alt="Latihan dan Kekompakan Tim Tari">
-        <div class="portfolio-info">
-          <h3>Latihan dan Kekompakan Tim Tari</h3>
-          <p>Mengikuti proses latihan, mempelajari gerakan dan formasi tari, serta menjaga kekompakan bersama anggota tim agar penampilan dapat berjalan dengan baik.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GALERI FOTO & VIDEO -->
-  <section id="galeri">
-    <h2 class="section-title">Galeri Foto & Video</h2>
-    
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/13r6qLDbptZw28eRMOHUfMrAcoIVYMH5a" alt="Kostum Tari Betawi">
-      </div>
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1Xh9YNMOnZMlgK_Mjn0UOWu0Wn1kWPs22" alt="Pementasan Seni">
-      </div>
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/11MHFeK5pQAPHp0V_-scBiFjUV3Y_szm4" alt="Latihan Tim Tari">
-      </div>
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1knA6-UCPU2Gp4lUVOeIAIT11yowizwzC" alt="Foto Profil">
-      </div>
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1ZwsNUuHC8u-JpcpVJ67nHKOxHb-uQR6n" alt="Dokumentasi Kegiatan Tari 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1NZ_3toRa1zDAvdS-tbIvJbPpc9kSG6gh" alt="Dokumentasi Kegiatan Tari 2">
-      </div>
-    </div>
-
-    <!-- Video Penampilan -->
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Performance Video Sindy Dewipriadi" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- 8. TESTIMONI -->
-  <section id="testimoni">
-    <h2 class="section-title">Testimoni</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>"Sindy merupakan anak yang disiplin dan bertanggung jawab dalam mengikuti kegiatan tari. Ia juga mampu bekerja sama dengan teman-temannya dan selalu berusaha memberikan penampilan yang terbaik."</p>
-        <div class="testimonial-author">— Pembina / Pelatih Tari</div>
-      </div>
-
-      <div class="testimonial-card">
-        <p>"Sindy adalah teman yang menyenangkan untuk bekerja sama. Ia selalu berusaha mengikuti latihan dengan baik dan menjaga kekompakan bersama anggota tim."</p>
-        <div class="testimonial-author">— Teman / Anggota Tim Tari</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6 & 7. KONTAK & MEDIA SOSIAL -->
-  <section id="kontak">
-    <h2 class="section-title">Hubungi Saya</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <p>Tertarik untuk mengetahui lebih banyak tentang pengalaman saya dalam seni tari tradisional Betawi atau ingin berkolaborasi dalam kegiatan seni dan budaya? Silakan hubungi saya!</p>
-        
-        <div class="contact-details">
-          <div><i class="fa-solid fa-envelope"></i> sindydewipriadi@gmail.com</div>
-          <div><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</div>
-        </div>
-
-        <div class="social-links">
-          <a href="https://instagram.com/si_ndyy23" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://tiktok.com/@sindyyy029" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://youtube.com/@Sindy23-c3l" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-      </div>
-
-      <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Pesan berhasil terkirim!');">
-        <div class="form-group">
-          <label for="name">Nama</label>
-          <input type="text" id="name" required placeholder="Nama Lengkap">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required placeholder="alamat@email.com">
-        </div>
-        <div class="form-group">
-          <label for="message">Pesan</label>
-          <textarea id="message" rows="4" required placeholder="Tulis pesan kamu di sini..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 Sindy Dewipriadi. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2026 Sindy Dewipriadi. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
